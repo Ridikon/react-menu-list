@@ -1,0 +1,16 @@
+$c-light-grey: #e4dae1;
+$main-color: $c-light-grey;
+
+body, html {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: $main-color;
+}
+
+.content {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 1rem;
+  position: relative;
+}
