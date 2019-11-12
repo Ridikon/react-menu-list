@@ -1,6 +1,6 @@
 import API from '../api'
 
-import { SET_CATEGORIES, ADD_CATEGORY, DELETE_CATEGORY } from '../constants';
+import { SET_CATEGORIES, ADD_CATEGORY, DELETE_CATEGORY } from '../constants/categoriesConstants';
 import { fetchEnd, fetchStart } from './loadingActions';
 
 export const setCategories = (data) => {
