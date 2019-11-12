@@ -1,4 +1,4 @@
-import { LOADING_END, LOADING_START } from '../constants';
+import { LOADING_END, LOADING_START } from '../constants/loadingConstants';
 
 export const fetchStart = () => {
   return {

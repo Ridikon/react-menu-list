@@ -1,4 +1,4 @@
-import { ADD_CATEGORY, DELETE_CATEGORY, SET_CATEGORIES } from '../constants';
+import { ADD_CATEGORY, DELETE_CATEGORY, SET_CATEGORIES } from '../constants/categoriesConstants';
 
 let initialState = {
   categories: []
