@@ -1,23 +1,17 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Redirect, Route, Switch, withRouter } from 'react-router-dom';
-import { connect } from 'react-redux';
 
 import './App.scss';
 import Header from './components/Header';
-import CategoryList from './pages/CategoryList';
+import CategoryList from './containers/CategoryList';
 import Layout from './hoc/Layout';
-import CategoryForm from './components/CategoryForm';
-import CategoryView from './pages/CategoryView';
-import { fetchCategories } from './store/actions/categoriesActions';
+import CategoryForm from './containers/CategoryForm';
+import CategoryView from './containers/CategoryView';
 
-const App = ({ loading, categories, fetchCategories }) => {
-  useEffect(() => {
-    fetchCategories()
-  }, [fetchCategories]);
-
+const App = () => {
   let routes = (
     <Switch>
-      <Route path="/" exact render={() => <CategoryList categories={categories} loading={loading}/>}/>
+      <Route path="/" exact render={() => <CategoryList/>}/>
       <Route path="/create" component={CategoryForm}/>
       <Route path="/view/:id" component={CategoryView}/>
       <Redirect to="/"/>
@@ -32,16 +26,4 @@ const App = ({ loading, categories, fetchCategories }) => {
   );
 };
 
-const mapStateToProps = (store) => {
-  return {
-    loading: store.loading.loading,
-    categories: store.categories.categories
-  }
-};
-
-const mapDispatchToProps = {
-  fetchCategories
-};
-
-
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(App));
+export default withRouter(App);

@@ -2,17 +2,24 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
-import { applyMiddleware, createStore } from 'redux';
-import reducer from './store/reducers';
+import { applyMiddleware, compose, createStore } from 'redux';
+import rootReducer from './reducers';
 import thunkMiddleware from 'redux-thunk';
 
 import App from './App';
 
-const store = createStore(reducer, applyMiddleware(thunkMiddleware));
+const composeEnhancers =
+  typeof window === 'object' &&
+  window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ ?
+    window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({}) : compose;
+
+const store = createStore(rootReducer, composeEnhancers(
+  applyMiddleware(thunkMiddleware)
+));
 
 ReactDOM.render(
   <Provider store={store}>
     <BrowserRouter>
-      <App />
+      <App/>
     </BrowserRouter>
   </Provider>, document.getElementById('root'));
