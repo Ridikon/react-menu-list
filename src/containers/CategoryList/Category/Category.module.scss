@@ -1,0 +1,32 @@
+.category {
+  margin-bottom: 5px;
+  border: 1px solid #eee;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+
+  &_item {
+    flex-grow: 10;
+    color: #000;
+    padding: 1rem;
+    font-weight: 900;
+    font-size: 1.1rem;
+    text-decoration: none;
+  }
+
+  &:hover {
+    border: 1px solid #000;
+    color: lightyellow;
+    background-color: lightskyblue;
+  }
+
+  .delete {
+    padding: 1rem;
+    cursor: pointer;
+
+    &:hover {
+      color: red;
+      height: 100%;
+    }
+  }
+}
