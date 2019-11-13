@@ -1,0 +1,15 @@
+.position {
+  border: 1px solid #a495ff;
+  padding: .6rem;
+  margin-bottom: 5px;
+  display: flex;
+  justify-content: space-between;
+
+  .delete {
+    cursor: pointer;
+
+    &:hover {
+      color: red;
+    }
+  }
+}

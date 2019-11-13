@@ -23,7 +23,9 @@ const CategoryList = ({ categories, loading, fetchCategories, removeCategory }) 
   };
 
   const onDelete = (id) => {
-    removeCategory(id)
+    if (window.confirm('Are you sure?')) {
+      removeCategory(id)
+    }
   };
 
   return (

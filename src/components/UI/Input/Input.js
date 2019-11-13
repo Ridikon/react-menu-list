@@ -20,7 +20,7 @@ const Input = ({type, name, id, value, onChange, placeholder}) => {
 Input.propTypes = {
   type: PropTypes.string,
   name: PropTypes.string,
-  value: PropTypes.string,
+  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   id: PropTypes.string,
   onChange: PropTypes.func,
   placeholder: PropTypes.string

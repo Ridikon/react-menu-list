@@ -31,7 +31,7 @@ const CategoryForm = ({postCategory}) => {
       };
       postCategory(data);
       resetForm({})
-    },
+    }
   });
 
   return (
@@ -49,7 +49,7 @@ const CategoryForm = ({postCategory}) => {
 
       {formik.errors.title && <div className={''}>{formik.errors.title}</div>}
 
-      <Button type="submit" size="small" typeColor="success" disabled={!formik.values.title}>Create</Button>
+      <Button type="submit" size="small" typeColor="success" disabled={!formik.values.title || !!formik.errors.title}>Create</Button>
     </form>
   );
 };
