@@ -12,5 +12,32 @@ body, html {
   max-width: 1140px;
   margin: 0 auto;
   padding: 1rem;
-  position: relative;
+}
+
+.is-flex {
+  display: flex;
+
+  &.direction-row {
+    flex-direction: row;
+  }
+
+  &.direction-column {
+    flex-direction: column;
+  }
+
+  &.is-v-centered {
+    align-items: center;
+  }
+
+  &.is-h-centered {
+    justify-content: center;
+  }
+
+  &.is-v-end {
+    align-items: flex-end;
+  }
+
+  &.is-h-end {
+    justify-content: flex-end;
+  }
 }

@@ -1,4 +1,4 @@
-import { ADD_CATEGORY, DELETE_CATEGORY, SET_CATEGORIES } from '../constants/categoriesConstants';
+import { ADD_CATEGORY, DELETE_CATEGORY, SET_CATEGORIES, UPDATE_CATEGORY } from '../constants/categoriesConstants';
 
 let initialState = {
   categories: []
@@ -20,6 +20,14 @@ export const categoriesReducer = (state = initialState, action) => {
       return {
         ...state,
         categories: state.categories.filter(c => c.id !== action.payload)
+      };
+    case UPDATE_CATEGORY:
+      const index = state.categories.findIndex(c => c.id === action.payload.id);
+      let shallowCategories = [...state.categories];
+      shallowCategories[index] = action.payload;
+      return {
+        ...state,
+        categories: [...shallowCategories]
       };
     default:
       return state;

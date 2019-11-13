@@ -1,6 +1,6 @@
-import API from '../api'
+import API from '../api';
 
-import { SET_CATEGORIES, ADD_CATEGORY, DELETE_CATEGORY } from '../constants/categoriesConstants';
+import { SET_CATEGORIES, ADD_CATEGORY, DELETE_CATEGORY, UPDATE_CATEGORY } from '../constants/categoriesConstants';
 import { fetchEnd, fetchStart } from './loadingActions';
 
 export const setCategories = (data) => {
@@ -21,6 +21,13 @@ export const deleteCategory = (id) => {
   return {
     type: DELETE_CATEGORY,
     payload: id
+  }
+};
+
+export const updateCategoryAction = (data) => {
+  return {
+    type: UPDATE_CATEGORY,
+    payload: data
   }
 };
 
@@ -54,6 +61,17 @@ export const removeCategory = (id) => dispatch => {
   API.delete(`categories/${id}`).then(() => {
     dispatch(fetchEnd());
     dispatch(deleteCategory(id))
+  }).catch(e => {
+    dispatch(fetchEnd());
+    console.log(e)
+  })
+};
+
+export const updateCategory = (data) => (dispatch) => {
+  dispatch(fetchStart());
+  API.put(`categories/${data.id}`, data).then(() => {
+    dispatch(fetchEnd());
+    dispatch(updateCategoryAction(data))
   }).catch(e => {
     dispatch(fetchEnd());
     console.log(e)
